@@ -12,11 +12,12 @@ public class CursorAffordance : MonoBehaviour {
     CameraRaycaster cameraRaycaster;
 
     void Start () {
-        cameraRaycaster = GetComponent<CameraRaycaster>();		
+        cameraRaycaster = GetComponent<CameraRaycaster>();
+        cameraRaycaster.onLayerChange += OnLayerChanged;
 	}
 	
-	void LateUpdate () {
-        switch (cameraRaycaster.currentLayerHit)
+	void OnLayerChanged (Layer newLayer) {
+        switch (newLayer)
         {
             case Layer.Enemy:
                 Cursor.SetCursor(targetCursor, cursorHotSpot, CursorMode.Auto);

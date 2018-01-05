@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
     [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float attackRadius = 4f;
     float currentHealthPoints = 100;
-    AICharacterControl aICharacterControl= null;
+    AICharacterControl aICharacterControl = null;
     GameObject player = null;
 
     private void Start()

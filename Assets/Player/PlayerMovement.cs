@@ -20,24 +20,6 @@ public class PlayerMovement : MonoBehaviour
         currentDestination = transform.position;
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            isIndirectMode = !isIndirectMode;
-            currentDestination = transform.position;
-
-        }
-        if (isIndirectMode)
-        {
-            ProcessDirectMovement();
-        }
-        else
-        {
-            ProcessMouseMovement();
-        }
-    }
-
     private void ProcessDirectMovement()
     {
         float h = Input.GetAxis("Horizontal");
@@ -50,24 +32,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessMouseMovement()
     { 
-        if (Input.GetMouseButton(0))
-        {
-            clickPoint = cameraRaycaster.hit.point;
-            switch (cameraRaycaster.currentLayerHit)
-            {
-                case Layer.Walkable:
-                    currentDestination = clickPoint;
-                    currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
-                    break;
-                case Layer.Enemy:
-                    currentDestination = ShortDestination(clickPoint, attackMoveStopRadius);
-                    break;
-                default:
-                    print("Unexpected layer found");
-                    break;
-            }
-        }
-        WalkToDestination();
+        //if (Input.GetMouseButton(0))
+        //{
+        //    clickPoint = cameraRaycaster.hit.point;
+        //    switch (cameraRaycaster.currentLayerHit)
+        //    {
+        //        case 8:
+        //            currentDestination = clickPoint;
+        //            currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
+        //            break;
+        //        case 9:
+        //            currentDestination = ShortDestination(clickPoint, attackMoveStopRadius);
+        //            break;
+        //        default:
+        //            print("Unexpected layer found");
+        //            break;
+        //    }
+        //}
+        //WalkToDestination();
     }
 
     private void WalkToDestination()

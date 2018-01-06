@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54957040765695964}
   - component: {fileID: 114812946555976706}
   m_Layer: 9
-  m_Name: Fast Projectile
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680703822735258}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 1.815, z: 2.472}
+  m_LocalPosition: {x: 3.3958788, y: 1.9226478, z: -9.833453}
   m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageCaused: 0
-  projectileSpeed: 50
+  projectileLifeSpan: 2
+  projectileSpeed: 10
 --- !u!135 &135566791199664362
 SphereCollider:
   m_ObjectHideFlags: 1

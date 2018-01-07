@@ -93,14 +93,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 3600
-  m_StationaryTurnSpeed: 1800
+  m_MovingTurnSpeed: 1800
+  m_StationaryTurnSpeed: 900
   m_JumpPower: 6
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
   m_MoveSpeedMultiplier: 0.7
   m_AnimSpeedMultiplier: 1.5
-  m_GroundCheckDistance: 0.4
+  m_GroundCheckDistance: 1
 --- !u!136 &13615390
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522d39c4c1ba004a979757fbcf8dd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 1000
+  maxHealthPoints: 100000
   currentHealthPoints: 100
   damagePerHit: 50
   maxAttackRange: 4

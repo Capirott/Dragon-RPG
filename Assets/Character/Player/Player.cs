@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Player : MonoBehaviour, IDamageable {
 
@@ -9,7 +11,7 @@ public class Player : MonoBehaviour, IDamageable {
     [SerializeField] float damagePerHit = 10f;
     [SerializeField] float maxAttackRange = 4f;
     [SerializeField] float minTimeBetweenHits = 0.5f;
-    [SerializeField] GameObject currentTarget;
+    [SerializeField] Weapon weaponInUse;
     CameraRaycaster cameraRaycaster;
     [SerializeField] const int enemyLayerNumber = 9;
     float lastHitTime = 0f;
@@ -17,7 +19,31 @@ public class Player : MonoBehaviour, IDamageable {
 
     private void Start()
     {
+        RegisterForMouseClick();
         currentHealthPoints = maxHealthPoints;
+        PutWeaponInHand();
+    }
+
+    private void PutWeaponInHand()
+    {
+        var weaponPrefab = weaponInUse.GetWeaponPrefab();
+        GameObject dominantHand = RequestDominantHand();
+        var weapon = Instantiate(weaponPrefab, dominantHand.transform);
+        weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
+        weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
+    }
+
+    private GameObject RequestDominantHand()
+    {
+        var dominantHands = GetComponentsInChildren<DominantHand>();
+        int numberOfDominantsHands = dominantHands.Length;
+        Assert.IsFalse(numberOfDominantsHands <= 0, "No DominantHand found on player, please add one.");
+        Assert.IsFalse(numberOfDominantsHands > 1, "Multiple DominantHand scripts on player, please remove one.");
+        return dominantHands[0].gameObject;
+    }
+
+    private void RegisterForMouseClick()
+    {
         cameraRaycaster = FindObjectOfType<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
     }
@@ -32,8 +58,7 @@ public class Player : MonoBehaviour, IDamageable {
                 {
                     return;
                 }
-                currentTarget = target;
-                IDamageable enemy = currentTarget.GetComponent<IDamageable>();
+                IDamageable enemy = target.GetComponent<IDamageable>();
                 if (Time.time - lastHitTime > minTimeBetweenHits)
                 {
                     enemy.TakeDamage(damagePerHit);

@@ -121,7 +121,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
 			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 			//m_Animator.SetBool("Crouch", m_Crouching);
-			m_Animator.SetBool("OnGround", m_IsGrounded);
 			if (!m_IsGrounded)
 			{
 				m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);

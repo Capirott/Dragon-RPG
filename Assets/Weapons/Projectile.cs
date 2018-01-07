@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
     [HideInInspector]
     public float damageCaused;
-    public float projectileLifeSpan = 2f;
+    public float projectileLifeSpan = 1.5f;
     float timeCreated = 0f;
 
     public float projectileSpeed;
@@ -22,14 +22,14 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        
-        IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
             damageable.TakeDamage(damageCaused);
-            Destroy(gameObject);
         }
+        Destroy(gameObject, 0.01f);
     }
+
 }

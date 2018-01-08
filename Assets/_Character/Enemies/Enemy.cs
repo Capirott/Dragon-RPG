@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
+using RPG.Core;
+using RPG.Weapons;
 
 namespace RPG.Characters
 {

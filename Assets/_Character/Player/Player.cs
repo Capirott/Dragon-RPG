@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using RPG.CameraUI;
+using RPG.Core;
+using RPG.Weapons;
 
 namespace RPG.Characters
 {

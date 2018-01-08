@@ -11,11 +11,16 @@ namespace RPG.Weapons
         public Transform gripTransform;
 
         [SerializeField] GameObject weaponPrefab;
-        [SerializeField] Animation attackAnimation;
+        [SerializeField] AnimationClip attackAnimation;
 
         public GameObject GetWeaponPrefab()
         {
             return weaponPrefab;
+        }
+
+        public AnimationClip GetAnimClip()
+        {
+            return attackAnimation;
         }
     }
 }

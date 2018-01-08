@@ -1994,7 +1994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1644153548677328
 GameObject:
   m_ObjectHideFlags: 1
@@ -6487,7 +6487,9 @@ MonoBehaviour:
   damagePerHit: 50
   maxAttackRange: 4
   minTimeBetweenHits: 1
-  weaponInUse: {fileID: 0}
+  weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
+    type: 2}
 --- !u!114 &114775338381371592
 MonoBehaviour:
   m_ObjectHideFlags: 1

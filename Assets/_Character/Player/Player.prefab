@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &408730
 Transform:
   m_ObjectHideFlags: 1
@@ -31,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -89.89, y: 0, z: -52.08}
+  m_LocalPosition: {x: -1.1739655, y: 0, z: 0.57992554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4894789893909220}
@@ -741,6 +741,7 @@ MonoBehaviour:
   maxAttackRange: 4
   minTimeBetweenHits: 1
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
+  animatorOverrideController: {fileID: 0}
 --- !u!114 &114853617789834466
 MonoBehaviour:
   m_ObjectHideFlags: 1

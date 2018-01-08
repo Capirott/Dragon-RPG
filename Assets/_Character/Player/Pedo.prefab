@@ -94,6 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4880235862035314}
+  - component: {fileID: 114758887223928626}
   m_Layer: 11
   m_Name: b_Left_Hand
   m_TagString: Untagged
@@ -320,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1920158979427078
 GameObject:
   m_ObjectHideFlags: 1
@@ -734,6 +735,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5855a65d0f521874ab3f7a39a4104a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114758887223928626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289723994052556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43272361111624a499f1a82ee9f3576f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114763014507813624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -751,6 +763,7 @@ MonoBehaviour:
   maxAttackRange: 4
   minTimeBetweenHits: 1
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
+  animatorOverrideController: {fileID: 0}
 --- !u!114 &114878584044488102
 MonoBehaviour:
   m_ObjectHideFlags: 1

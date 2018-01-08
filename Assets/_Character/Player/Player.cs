@@ -17,18 +17,30 @@ namespace RPG.Characters
         [SerializeField] float maxAttackRange = 4f;
         [SerializeField] float minTimeBetweenHits = 0.5f;
         [SerializeField] Weapon weaponInUse;
+        [SerializeField] AnimatorOverrideController animatorOverrideController;
         CameraRaycaster cameraRaycaster;
         [SerializeField] const int enemyLayerNumber = 9;
         float lastHitTime = 0f;
-        Animator animator;
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
         private void Start()
         {
-            animator = GetComponent<Animator>();
             RegisterForMouseClick();
-            currentHealthPoints = maxHealthPoints;
+            SetCurrentMaxHealth();
             PutWeaponInHand();
+            OverrideAnimationController();
+        }
+
+        private void SetCurrentMaxHealth()
+        {
+            currentHealthPoints = maxHealthPoints;
+        }
+
+        private void OverrideAnimationController()
+        {
+            var animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAnimClip();
         }
 
         private void PutWeaponInHand()
@@ -70,7 +82,6 @@ namespace RPG.Characters
                     IDamageable enemy = target.GetComponent<IDamageable>();
                     if (Time.time - lastHitTime > minTimeBetweenHits)
                     {
-                        animator.SetTrigger("Kick");
                         enemy.TakeDamage(damagePerHit);
                         lastHitTime = Time.time;
                     }

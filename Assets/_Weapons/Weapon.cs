@@ -25,8 +25,6 @@ namespace RPG.Weapons
             return maxAttackRange;
         }
 
-
-
         public GameObject GetWeaponPrefab()
         {
             return weaponPrefab;

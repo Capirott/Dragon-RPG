@@ -14,21 +14,26 @@ namespace RPG.Characters
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float currentHealthPoints;
         [SerializeField] float damagePerHit = 10f;
-        [SerializeField] float maxAttackRange = 4f;
-        [SerializeField] float minTimeBetweenHits = 0.5f;
         [SerializeField] Weapon weaponInUse;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
+        Animator animator;
         CameraRaycaster cameraRaycaster;
         [SerializeField] const int enemyLayerNumber = 9;
         float lastHitTime = 0f;
+
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
+
+        public void TakeDamage(float damage)
+        {
+            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+        }
 
         private void Start()
         {
             RegisterForMouseClick();
             SetCurrentMaxHealth();
             PutWeaponInHand();
-            OverrideAnimationController();
+            SetupRuntimeAnimator();
         }
 
         private void SetCurrentMaxHealth()
@@ -36,9 +41,9 @@ namespace RPG.Characters
             currentHealthPoints = maxHealthPoints;
         }
 
-        private void OverrideAnimationController()
+        private void SetupRuntimeAnimator()
         {
-            var animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAnimClip();
         }
@@ -75,30 +80,36 @@ namespace RPG.Characters
             {
                 case enemyLayerNumber:
                     GameObject target = raycastHit.collider.gameObject;
-                    if ((target.transform.position - transform.position).magnitude > maxAttackRange)
+                    if (IsTargetInRange(target))
                     {
-                        return;
-                    }
-                    IDamageable enemy = target.GetComponent<IDamageable>();
-                    if (Time.time - lastHitTime > minTimeBetweenHits)
-                    {
-                        enemy.TakeDamage(damagePerHit);
-                        lastHitTime = Time.time;
-                    }
+                        AttackTarget(target);
+                    }                    
                     break;
             }
         }
 
-        public void TakeDamage(float damage)
+        private void AttackTarget(GameObject target)
         {
-            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+            IDamageable enemyDamageable = target.GetComponent<IDamageable>();
+            if (enemyDamageable != null && (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()))
+            {
+                animator.SetTrigger("Attack");
+                enemyDamageable.TakeDamage(damagePerHit);
+                lastHitTime = Time.time;
+            }
+        }
+
+        private bool IsTargetInRange(GameObject target)
+        {
+            float distanceToTarget = (target.transform.position - transform.position).magnitude;
+            return (distanceToTarget <= weaponInUse.GetMaxAttackRange());
         }
 
 
         private void OnDrawGizmos()
         {
             Gizmos.color = new Color(255f, 0f, 255f, .5f);
-            Gizmos.DrawWireSphere(transform.position, maxAttackRange);
+            Gizmos.DrawWireSphere(transform.position, weaponInUse.GetMaxAttackRange());
         }
     }
 }

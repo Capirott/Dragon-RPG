@@ -15,10 +15,12 @@ public class Player : MonoBehaviour, IDamageable {
     CameraRaycaster cameraRaycaster;
     [SerializeField] const int enemyLayerNumber = 9;
     float lastHitTime = 0f;
+    Animator animator;
     public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
-
+    
     private void Start()
     {
+        animator = GetComponent<Animator>();
         RegisterForMouseClick();
         currentHealthPoints = maxHealthPoints;
         PutWeaponInHand();
@@ -26,8 +28,10 @@ public class Player : MonoBehaviour, IDamageable {
 
     private void PutWeaponInHand()
     {
+        if ( weaponInUse == null)
+            return;
         var weaponPrefab = weaponInUse.GetWeaponPrefab();
-        GameObject dominantHand = RequestDominantHand();
+        GameObject dominantHand = RequestDominantHand();        
         var weapon = Instantiate(weaponPrefab, dominantHand.transform);
         weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
         weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
@@ -61,6 +65,7 @@ public class Player : MonoBehaviour, IDamageable {
                 IDamageable enemy = target.GetComponent<IDamageable>();
                 if (Time.time - lastHitTime > minTimeBetweenHits)
                 {
+                    animator.SetTrigger("Kick");
                     enemy.TakeDamage(damagePerHit);
                     lastHitTime = Time.time;
                 }

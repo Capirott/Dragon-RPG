@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, IDamageable {
 
     private void PutWeaponInHand()
     {
-        if ( weaponInUse == null)
+        if ( weaponInUse == null )
             return;
         var weaponPrefab = weaponInUse.GetWeaponPrefab();
         GameObject dominantHand = RequestDominantHand();        

@@ -1889,14 +1889,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539945783225742}
-  m_LocalRotation: {x: 0.99999875, y: -0, z: -0, w: 0.0015912864}
+  m_LocalRotation: {x: 0, y: 0.0015883772, z: -0.9999988, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4674430247985932}
   m_Father: {fileID: 4375857626916772}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 179.818, y: 180, z: 0}
 --- !u!4 &4061434937243544
 Transform:
   m_ObjectHideFlags: 1
@@ -2297,7 +2297,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779241366528218}
-  m_LocalRotation: {x: -0, y: -0.86735326, z: -0, w: 0.49769312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9371152, y: 2.3367453, z: -0.06584406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3575,7 +3575,7 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
     type: 2}
   abilities:
-  - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
+  - {fileID: 11400000, guid: f54a31ca6f04ed64aaaae6d9008ac38a, type: 2}
 --- !u!114 &114373068887518728
 MonoBehaviour:
   m_ObjectHideFlags: 1

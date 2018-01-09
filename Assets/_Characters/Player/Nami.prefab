@@ -1987,6 +1987,7 @@ GameObject:
   - component: {fileID: 114470573078379042}
   - component: {fileID: 114901574445364294}
   - component: {fileID: 114579878170426720}
+  - component: {fileID: 114868966063544870}
   m_Layer: 11
   m_Name: Nami
   m_TagString: Player
@@ -6351,7 +6352,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767945075153138}
-  m_LocalRotation: {x: 0.67030126, y: -0.6521872, z: 0.31523156, w: 0.16117467}
+  m_LocalRotation: {x: 0.6703012, y: -0.65218717, z: 0.31523153, w: 0.16117465}
   m_LocalPosition: {x: -0.059983414, y: 0.053450096, z: -0.03549942}
   m_LocalScale: {x: 0.99999994, y: 0.9999997, z: 1}
   m_Children:
@@ -6483,11 +6484,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100000
   currentHealthPoints: 100
+  regenPointsPerSecond: 10
   baseDamage: 10
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
     type: 2}
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
 --- !u!114 &114775338381371592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6507,6 +6510,21 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.7
   m_AnimSpeedMultiplier: 1.5
   m_GroundCheckDistance: 1
+--- !u!114 &114868966063544870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637153720206346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c36763817cf8d445a83594938c7cce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergyPoints: 100
+  currentEnergyPoints: 0
+  regenPointsPerSecond: 10
 --- !u!114 &114901574445364294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6528,10 +6546,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.6
+  m_Radius: 0.2
+  m_Height: 2.03
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 1.03, z: 0}
 --- !u!137 &137026709476101694
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -10688,9 +10706,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1637153720206346}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 1
-  m_Acceleration: 2
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5

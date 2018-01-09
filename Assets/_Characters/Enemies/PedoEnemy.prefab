@@ -824,9 +824,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 2
+  m_Height: 2.03
   m_Direction: 1
-  m_Center: {x: 0, y: 1.05, z: 0}
+  m_Center: {x: 0, y: 1.03, z: 0}
 --- !u!137 &137164331736480016
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -900,7 +900,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1871938639779616}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50

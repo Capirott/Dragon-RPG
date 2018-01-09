@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114853617789834466}
   - component: {fileID: 114933195057390812}
   - component: {fileID: 114799157468188864}
+  - component: {fileID: 114769673879847518}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -98,10 +99,10 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.6
+  m_Radius: 0.2
+  m_Height: 2.03
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 1.03, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -712,6 +713,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43272361111624a499f1a82ee9f3576f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114769673879847518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c36763817cf8d445a83594938c7cce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergyPoints: 100
+  currentEnergyPoints: 0
+  regenPointsPerSecond: 10
 --- !u!114 &114799157468188864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -725,10 +741,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100000
   currentHealthPoints: 100
+  regenPointsPerSecond: 10
   baseDamage: 10
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
   animatorOverrideController: {fileID: 0}
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
 --- !u!114 &114853617789834466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -828,9 +846,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 1
-  m_Acceleration: 2
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1.5

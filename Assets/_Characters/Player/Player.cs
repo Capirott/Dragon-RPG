@@ -18,7 +18,6 @@ namespace RPG.Characters
         [SerializeField] AnimatorOverrideController animatorOverrideController;
         Animator animator;
         CameraRaycaster cameraRaycaster;
-        [SerializeField] const int enemyLayerNumber = 9;
         float lastHitTime = 0f;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
@@ -71,30 +70,23 @@ namespace RPG.Characters
         private void RegisterForMouseClick()
         {
             cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-            cameraRaycaster.notifyMouseLeftClickObservers += OnMouseClick;
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        void OnMouseClick(RaycastHit raycastHit, int layerID)
+        private void OnMouseOverEnemy(Enemy enemy)
         {
-            switch (layerID)
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
-                case enemyLayerNumber:
-                    GameObject target = raycastHit.collider.gameObject;
-                    if (IsTargetInRange(target))
-                    {
-                        AttackTarget(target);
-                    }                    
-                    break;
+                AttackTarget(enemy);
             }
         }
 
-        private void AttackTarget(GameObject target)
+        private void AttackTarget(Enemy target)
         {
-            IDamageable enemyDamageable = target.GetComponent<IDamageable>();
-            if (enemyDamageable != null && (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()))
+            if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
                 animator.SetTrigger("Attack");
-                enemyDamageable.TakeDamage(damagePerHit);
+                target.TakeDamage(damagePerHit);
                 lastHitTime = Time.time;
             }
         }

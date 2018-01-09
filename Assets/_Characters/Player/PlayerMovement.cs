@@ -16,46 +16,44 @@ namespace RPG.Characters
         GameObject walkTarget = null;
         AICharacterControl aICharacterControl = null;
         //bool isIndirectMode = false;
-        [SerializeField] const int walkableLayerNumber = 8;
-        [SerializeField] const int enemyLayerNumber = 9;
 
         private void Start()
         {
             cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
             aICharacterControl = GetComponent<AICharacterControl>();
-            cameraRaycaster.notifyMouseLeftClickObservers += ProcessMouseClick;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
             walkTarget = new GameObject("walkTarget");
 
         }
 
-        private void ProcessMouseClick(RaycastHit raycastHit, int layerHit)
+        private void OnMouseOverEnemy(Enemy enemy)
         {
-            switch (layerHit)
+            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
             {
-                case enemyLayerNumber:
-                    GameObject enemy = raycastHit.collider.gameObject;
-                    aICharacterControl.SetTarget(enemy.transform);
-                    break;
-                case walkableLayerNumber:
-                    walkTarget.transform.position = raycastHit.point;
-                    aICharacterControl.SetTarget(walkTarget.transform);
-                    break;
-                default:
-                    Debug.LogError("Don't know how to handle mouse click or player movement");
-                    return;
+                walkTarget.transform.position = enemy.transform.position;
+                aICharacterControl.SetTarget(walkTarget.transform);
             }
         }
 
-        private void ProcessDirectMovement()
+        private void OnMouseOverPotentiallyWalkable(Vector3 destination)
         {
+            if (Input.GetMouseButton(0))
+            {
+                    walkTarget.transform.position = destination;
+                    aICharacterControl.SetTarget(walkTarget.transform);
+            }
+        }
+
+      private void ProcessDirectMovement()
+      {
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
             Vector3 cameraFoward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 movement = v * cameraFoward + h * Camera.main.transform.right;
             thirdPersonCharacter.Move(movement, false, false);
         }
-
 
     }
 }

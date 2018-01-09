@@ -789,27 +789,13 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: -0.42266998
       objectReference: {fileID: 0}
-    - target: {fileID: 4414445519949684, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4414445519949684, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4414445519949684, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4414445519949684, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 47
-      objectReference: {fileID: 0}
-    - target: {fileID: 4414445519949684, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -234.89
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114719148646761364, guid: 9daf4e571bb639a46b2f947cc6cdd198,
+        type: 2}
+      propertyPath: enemyCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 866fb075726c7af4aa2ca416d45dfef9, type: 3}
+    m_RemovedComponents:
+    - {fileID: 114450256881443356, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &465610747 stripped
@@ -2905,7 +2891,6 @@ MonoBehaviour:
   energyBar: {fileID: 2115688432}
   maxEnergyPoints: 100
   currentEnergyPoints: 0
-  pointsPerHit: 10
 --- !u!1001 &1650192864
 Prefab:
   m_ObjectHideFlags: 0

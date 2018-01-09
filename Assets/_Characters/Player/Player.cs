@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Assertions;
 using RPG.CameraUI;
 using RPG.Core;
 using RPG.Weapons;
-using System;
+using System.Collections;
 
 namespace RPG.Characters
 {
@@ -25,6 +26,22 @@ namespace RPG.Characters
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
         public void TakeDamage(float damage)
+        {
+            ReduceHealth(damage);
+            if(currentHealthPoints == 0)
+            {
+                StartCoroutine(KillPlayer());
+            }
+        }
+
+        IEnumerator KillPlayer()
+        {
+            print("You're dead!");
+            yield return new WaitForSecondsRealtime(2f);
+            SceneManager.LoadScene(0);            
+        }
+
+        private void ReduceHealth(float damage)
         {
             currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
         }

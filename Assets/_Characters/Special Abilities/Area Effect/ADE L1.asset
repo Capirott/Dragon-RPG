@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyCost: 10
   radius: 5
-  damageToEachTarget: 15
+  damageToEachTarget: 50

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9579096}
   - component: {fileID: 5426510}
   - component: {fileID: 13615390}
-  - component: {fileID: 11444856}
   - component: {fileID: 11469404}
   - component: {fileID: 195423016182422706}
   - component: {fileID: 114853617789834466}
@@ -71,17 +70,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11444856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11469404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,11 +725,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100000
   currentHealthPoints: 100
-  damagePerHit: 50
-  maxAttackRange: 4
-  minTimeBetweenHits: 1
+  baseDamage: 10
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
   animatorOverrideController: {fileID: 0}
+  abilities: []
 --- !u!114 &114853617789834466
 MonoBehaviour:
   m_ObjectHideFlags: 1

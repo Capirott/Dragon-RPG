@@ -309,7 +309,6 @@ GameObject:
   - component: {fileID: 95181958729368828}
   - component: {fileID: 54371383685342010}
   - component: {fileID: 136463646266930626}
-  - component: {fileID: 114878584044488102}
   - component: {fileID: 114004198580376040}
   - component: {fileID: 195979078728442848}
   - component: {fileID: 114456523679442246}
@@ -759,22 +758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100000
   currentHealthPoints: 100
-  damagePerHit: 50
-  maxAttackRange: 4
-  minTimeBetweenHits: 1
+  baseDamage: 10
   weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
   animatorOverrideController: {fileID: 0}
---- !u!114 &114878584044488102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1914184417916938}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  abilities: []
 --- !u!136 &136463646266930626
 CapsuleCollider:
   m_ObjectHideFlags: 1

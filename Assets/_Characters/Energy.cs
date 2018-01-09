@@ -11,8 +11,6 @@ namespace RPG.Characters
         [SerializeField] float regenPointsPerSecond = 10f;
 
 
-        float lastRegTime = 0f;
-
         private void Update()
         {
             if (currentEnergyPoints < maxEnergyPoints)

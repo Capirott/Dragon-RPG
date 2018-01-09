@@ -2117,6 +2117,16 @@ Prefab:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1690102742}
+    - target: {fileID: 114362790802890932, guid: c7063294d039e1349bb1a5808d742b38,
+        type: 2}
+      propertyPath: maxHealthPoints
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114362790802890932, guid: c7063294d039e1349bb1a5808d742b38,
+        type: 2}
+      propertyPath: regenPointsPerSecond
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7063294d039e1349bb1a5808d742b38, type: 2}
   m_IsPrefabParent: 0

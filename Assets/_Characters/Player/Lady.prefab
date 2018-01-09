@@ -2297,8 +2297,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779241366528218}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26, y: 0, z: -18.2}
+  m_LocalRotation: {x: -0, y: -0.86735326, z: -0, w: 0.49769312}
+  m_LocalPosition: {x: 0.9371152, y: 2.3367453, z: -0.06584406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4053316221564800}
@@ -3567,8 +3567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522d39c4c1ba004a979757fbcf8dd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100000
+  maxHealthPoints: 1000
   currentHealthPoints: 100
+  regenPointsPerSecond: 5
   baseDamage: 15
   weaponInUse: {fileID: 11400000, guid: 59f0848c13143da4c8e85d5e9905eb3e, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,

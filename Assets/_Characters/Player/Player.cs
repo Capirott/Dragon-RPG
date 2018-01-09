@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 using RPG.CameraUI;
 using RPG.Core;
 using RPG.Weapons;
+using System;
 
 namespace RPG.Characters
 {
@@ -10,6 +11,7 @@ namespace RPG.Characters
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float currentHealthPoints;
+        [SerializeField] float regenPointsPerSecond = 10f;
         [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon weaponInUse;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
@@ -84,6 +86,20 @@ namespace RPG.Characters
             {
                 AttemptSpecialAbility(0, enemy);
             }
+        }
+
+        private void Update()
+        {
+            if (currentHealthPoints < maxHealthPoints)
+            {
+                AddEnergyPoints();
+            }
+        }
+
+        private void AddEnergyPoints()
+        {
+            var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
+            currentHealthPoints = Mathf.Clamp(currentHealthPoints + pointsToAdd, 0, maxHealthPoints);
         }
 
         private void AttemptSpecialAbility(int index, Enemy enemy)

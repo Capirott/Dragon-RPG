@@ -13,11 +13,11 @@ namespace RPG.Characters
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float currentHealthPoints;
-        [SerializeField] float damagePerHit = 10f;
+        [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon weaponInUse;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
-        [SerializeField] SpecialAbilityConfig[] abilities;
+        [SerializeField] SpecialAbility[] abilities;
 
         Animator animator;
         CameraRaycaster cameraRaycaster;
@@ -92,11 +92,12 @@ namespace RPG.Characters
         private void AttemptSpecialAbility(int index, Enemy enemy)
         {
             Energy energy = GetComponent<Energy>();
-            float energyCost = 10f;
+            float energyCost = abilities[index].GetEnergyCost();
             if (energy.IsEnergyAvailable(energyCost))
             {
                 energy.ConsumeEnergy(energyCost);
-                abilities[index].Use();
+                var abilityParams = new AbilityUseParams(enemy, baseDamage);
+                abilities[index].Use(abilityParams);
             }
         }
 
@@ -105,7 +106,7 @@ namespace RPG.Characters
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
                 animator.SetTrigger("Attack");
-                target.TakeDamage(damagePerHit);
+                target.TakeDamage(baseDamage);
                 lastHitTime = Time.time;
             }
         }

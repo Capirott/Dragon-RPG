@@ -1562,6 +1562,7 @@ GameObject:
   - component: {fileID: 114443183683344750}
   - component: {fileID: 114251066195194194}
   - component: {fileID: 114362790802890932}
+  - component: {fileID: 114469601475377850}
   m_Layer: 11
   m_Name: Lady
   m_TagString: Player
@@ -2297,8 +2298,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779241366528218}
-  m_LocalRotation: {x: -0, y: -0.86735326, z: -0, w: 0.49769312}
-  m_LocalPosition: {x: 0.9371152, y: 2.3367453, z: -0.06584406}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26, y: 0, z: -18.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4053316221564800}
@@ -3580,10 +3581,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 100000
   currentHealthPoints: 100
-  damagePerHit: 50
+  baseDamage: 15
   weaponInUse: {fileID: 11400000, guid: 59f0848c13143da4c8e85d5e9905eb3e, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
     type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
 --- !u!114 &114373068887518728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3625,13 +3628,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43272361111624a499f1a82ee9f3576f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114469601475377850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779241366528218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c36763817cf8d445a83594938c7cce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergyPoints: 100
+  currentEnergyPoints: 0
 --- !u!136 &136931969574069486
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779241366528218}
-  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3

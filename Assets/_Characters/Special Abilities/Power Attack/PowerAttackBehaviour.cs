@@ -8,9 +8,10 @@ namespace RPG.Characters
     {
         PowerAttackConfig config;
 
-        public void Use()
+        public void Use(AbilityUseParams useParams)
         {
-            print("Power attack use");
+            float damageToDeal = useParams.baseDamage + config.GetExtraDamage();
+            useParams.target.TakeDamage(damageToDeal);
         }
 
         public void SetPowerAttackConfig(PowerAttackConfig config)

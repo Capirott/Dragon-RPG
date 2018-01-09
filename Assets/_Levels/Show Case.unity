@@ -789,13 +789,7 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: -0.42266998
       objectReference: {fileID: 0}
-    - target: {fileID: 114719148646761364, guid: 9daf4e571bb639a46b2f947cc6cdd198,
-        type: 2}
-      propertyPath: enemyCursor
-      value: 
-      objectReference: {fileID: 2800000, guid: 866fb075726c7af4aa2ca416d45dfef9, type: 3}
-    m_RemovedComponents:
-    - {fileID: 114450256881443356, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9daf4e571bb639a46b2f947cc6cdd198, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &465610747 stripped
@@ -3238,6 +3232,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114362790802890932, guid: c7063294d039e1349bb1a5808d742b38,
+        type: 2}
+      propertyPath: ability1
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7063294d039e1349bb1a5808d742b38, type: 2}
   m_IsPrefabParent: 0

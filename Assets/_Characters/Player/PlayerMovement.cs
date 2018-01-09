@@ -41,8 +41,8 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButton(0))
             {
-                    walkTarget.transform.position = destination;
-                    aICharacterControl.SetTarget(walkTarget.transform);
+                walkTarget.transform.position = destination;
+                aICharacterControl.SetTarget(walkTarget.transform);
             }
         }
 

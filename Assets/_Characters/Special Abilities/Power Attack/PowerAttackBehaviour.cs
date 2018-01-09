@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace RPG.Characters
 {
     public class PowerAttackBehaviour : MonoBehaviour, ISpecialAbility
@@ -11,7 +10,7 @@ namespace RPG.Characters
 
         public void Use()
         {
-
+            print("Power attack use");
         }
 
         public void SetPowerAttackConfig(PowerAttackConfig config)

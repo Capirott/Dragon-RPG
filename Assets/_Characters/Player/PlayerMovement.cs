@@ -24,7 +24,7 @@ namespace RPG.Characters
             cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             thirdPersonCharacter = GetComponent<ThirdPersonCharacter>();
             aICharacterControl = GetComponent<AICharacterControl>();
-            cameraRaycaster.notifyMouseClickObservers += ProcessMouseClick;
+            cameraRaycaster.notifyMouseLeftClickObservers += ProcessMouseClick;
             walkTarget = new GameObject("walkTarget");
 
         }

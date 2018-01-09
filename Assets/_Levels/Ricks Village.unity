@@ -2112,6 +2112,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114469601475377850, guid: c7063294d039e1349bb1a5808d742b38,
+        type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 1690102742}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7063294d039e1349bb1a5808d742b38, type: 2}
   m_IsPrefabParent: 0
@@ -8324,6 +8329,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4fb31da03a86ad459d9a3a53e6f29e8, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1690102742 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114032033482299274, guid: 75a43cca039264395b99698681e52275,
+    type: 2}
+  m_PrefabInternal: {fileID: 1493844006}
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1697737075
 Prefab:
   m_ObjectHideFlags: 0

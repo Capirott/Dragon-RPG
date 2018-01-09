@@ -34,7 +34,10 @@ namespace RPG.Characters
             }
             else
             {
-                agent.velocity = Vector3.zero;
+                if (GetComponent<Enemy>())
+                {
+                    agent.velocity = Vector3.zero;
+                }
                 character.Move(Vector3.zero, false, false);
             }
         }

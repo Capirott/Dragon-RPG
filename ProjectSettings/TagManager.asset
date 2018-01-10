@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - World
+  - AListener
+  - Character
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,8 @@ TagManager:
   - Enemy
   - Stiff
   - Player
-  - 
-  - 
+  - Terrain
+  - UI
   - 
   - 
   - 

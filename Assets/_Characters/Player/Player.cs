@@ -16,8 +16,13 @@ namespace RPG.Characters
         [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon weaponInUse;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
-
+        [SerializeField] AudioClip[] damageSounds;
+        [SerializeField] AudioClip[] deathSounds;
         [SerializeField] SpecialAbility[] abilities;
+        AudioSource audioSource;
+
+        const string DEATH_TRIGGER = "Death";
+        const string ATTACK_TRIGGER = "Attack";
 
         Animator animator;
         CameraRaycaster cameraRaycaster;
@@ -27,32 +32,39 @@ namespace RPG.Characters
 
         public void TakeDamage(float damage)
         {
+            bool playerDies = currentHealthPoints - damage <= 0;
             ReduceHealth(damage);
-            if(currentHealthPoints == 0)
+            if (playerDies)
             {
                 StartCoroutine(KillPlayer());
-            }
-        }
-
-        IEnumerator KillPlayer()
-        {
-            print("You're dead!");
-            yield return new WaitForSecondsRealtime(2f);
-            SceneManager.LoadScene(0);            
-        }
-
-        private void ReduceHealth(float damage)
-        {
-            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+            }           
         }
 
         private void Start()
         {
+            audioSource = gameObject.AddComponent<AudioSource>();
             RegisterForMouseClick();
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
             abilities[0].AttachComponentTo(gameObject);
+        }
+
+        IEnumerator KillPlayer()
+        {
+            regenPointsPerSecond = 0;
+            audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            audioSource.Play();
+            animator.SetTrigger(DEATH_TRIGGER);
+            yield return new WaitForSecondsRealtime(audioSource.clip.length + 1f);
+            SceneManager.LoadScene(0);
+        }
+
+        private void ReduceHealth(float damage)
+        {
+            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+            audioSource.clip = damageSounds[Random.Range(0, damageSounds.Length)];
+            audioSource.Play();
         }
 
         private void SetCurrentMaxHealth()
@@ -109,11 +121,11 @@ namespace RPG.Characters
         {
             if (currentHealthPoints < maxHealthPoints)
             {
-                AddEnergyPoints();
+                AddHealthPoints();
             }
         }
 
-        private void AddEnergyPoints()
+        private void AddHealthPoints()
         {
             var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
             currentHealthPoints = Mathf.Clamp(currentHealthPoints + pointsToAdd, 0, maxHealthPoints);
@@ -135,7 +147,7 @@ namespace RPG.Characters
         {
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
-                animator.SetTrigger("Attack");
+                animator.SetTrigger(ATTACK_TRIGGER);
                 target.TakeDamage(baseDamage);
                 lastHitTime = Time.time;
             }

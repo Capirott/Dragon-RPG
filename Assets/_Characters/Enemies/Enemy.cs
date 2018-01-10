@@ -15,7 +15,8 @@ namespace RPG.Characters
 
         [SerializeField] float attackRadius = 4f;
         [SerializeField] float damagePerShot = 9f;
-        [SerializeField] float secondsBetweenShots = 0.5f;
+        [SerializeField] float firingPeriodsInS = 0.5f;
+        [SerializeField] float firingPeriodVariation = 0.1f;
         [SerializeField] GameObject projectileToUse;
         [SerializeField] GameObject projectileSocket;
         [SerializeField] Vector3 aimOffset = new Vector3(0, 1f, 0);
@@ -25,7 +26,7 @@ namespace RPG.Characters
 
 
         AICharacterControl aICharacterControl = null;
-        GameObject player = null;
+        Player player = null;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -39,18 +40,24 @@ namespace RPG.Characters
         private void Start()
         {
             currentHealthPoints = maxHealthPoints;
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = GameObject.FindObjectOfType<Player>();
             aICharacterControl = GetComponent<AICharacterControl>();
         }
 
 
         private void Update()
         {
+            if (player.healthAsPercentage <= Mathf.Epsilon)
+            {
+                StopAllCoroutines();
+                Destroy(this);
+            }
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             if (distanceToPlayer <= attackRadius && !isAttacking)
             {
                 isAttacking = true;
-                InvokeRepeating("FireProjectile", 0f, secondsBetweenShots);
+                float randomisedDelay =  Random.Range(firingPeriodsInS - firingPeriodVariation, firingPeriodsInS + firingPeriodVariation);
+                InvokeRepeating("FireProjectile", 0f, randomisedDelay);
             }
             if (distanceToPlayer > attackRadius)
             {
@@ -65,6 +72,7 @@ namespace RPG.Characters
             {
                 aICharacterControl.SetTarget(transform);
             }
+
         }
 
         void FireProjectile()

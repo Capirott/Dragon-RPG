@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Assertions;
 using RPG.CameraUI;
 using RPG.Core;
-using RPG.Weapons;
 using System.Collections;
 
 namespace RPG.Characters
@@ -14,7 +13,7 @@ namespace RPG.Characters
         [SerializeField] float currentHealthPoints;
         [SerializeField] float regenPointsPerSecond = 10f;
         [SerializeField] float baseDamage = 10f;
-        [SerializeField] Weapon weaponInUse;
+        [SerializeField] Weapon currentWeaponConfig;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
@@ -22,6 +21,20 @@ namespace RPG.Characters
         [SerializeField] float criticalHitMultiplier = 1.25f;
         [SerializeField] ParticleSystem criticalHitParticle;
         [SerializeField] AbilityConfig[] abilities;
+
+        GameObject weaponObject;
+
+        public void PutWeaponInHand(Weapon weaponToUse)
+        {
+            currentWeaponConfig = weaponToUse;
+            var weaponPrefab = currentWeaponConfig.GetWeaponPrefab();
+            GameObject dominantHand = RequestDominantHand();
+            Destroy(weaponObject);
+            weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
+            weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
+            weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
+        }
+
         AudioSource audioSource;
 
         const string DEATH_TRIGGER = "Death";
@@ -48,7 +61,7 @@ namespace RPG.Characters
             audioSource = gameObject.AddComponent<AudioSource>();
             RegisterForMouseClick();
             SetCurrentMaxHealth();
-            PutWeaponInHand();
+            PutWeaponInHand(currentWeaponConfig);
             SetupRuntimeAnimator();
             AttachInitialAbilities();
         }
@@ -87,18 +100,7 @@ namespace RPG.Characters
         {
             animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAnimClip();
-        }
-
-        private void PutWeaponInHand()
-        {
-            if (weaponInUse == null)
-                return;
-            var weaponPrefab = weaponInUse.GetWeaponPrefab();
-            GameObject dominantHand = RequestDominantHand();
-            var weapon = Instantiate(weaponPrefab, dominantHand.transform);
-            weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
-            weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
+            animatorOverrideController["DEFAULT ATTACK"] = currentWeaponConfig.GetAnimClip();
         }
 
         private GameObject RequestDominantHand()
@@ -177,7 +179,7 @@ namespace RPG.Characters
 
         private void AttackTarget()
         {
-            if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
+            if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
                 currentEnemy.TakeDamage(CalculateDamage());
@@ -188,7 +190,7 @@ namespace RPG.Characters
         private float CalculateDamage()
         {
             bool isCriticalHit = Random.Range(0.0f, 1.0f) <= criticalHitChance;
-            float damage = baseDamage + weaponInUse.GetAdditionalDamage();
+            float damage = baseDamage + currentWeaponConfig.GetAdditionalDamage();
             if (isCriticalHit)
             {
                 criticalHitParticle.Play();
@@ -200,14 +202,17 @@ namespace RPG.Characters
         private bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return (distanceToTarget <= weaponInUse.GetMaxAttackRange());
+            return (distanceToTarget <= currentWeaponConfig.GetMaxAttackRange());
         }
 
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = new Color(255f, 0f, 255f, .5f);
-            Gizmos.DrawWireSphere(transform.position, weaponInUse.GetMaxAttackRange());
+            if (currentWeaponConfig != null)
+            {
+                Gizmos.color = new Color(255f, 0f, 255f, .5f);
+                Gizmos.DrawWireSphere(transform.position, currentWeaponConfig.GetMaxAttackRange());
+            }
         }
     }
 }

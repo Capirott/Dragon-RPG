@@ -8,8 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed7a7ccc1877034394971d46a04d2ce, type: 3}
-  m_Name: Power Attack L1
+  m_Script: {fileID: 11500000, guid: 474cd45bd36b5c143b423da5ab2dfc28, type: 3}
+  m_Name: SH_L1
   m_EditorClassIdentifier: 
-  energyCost: 10
-  extraDamage: 100
+  energyCost: 50
+  particlePrefab: {fileID: 1913025339112216, guid: 3d79df11a1fb08a4e87916267d331138,
+    type: 2}
+  extraHealth: 500

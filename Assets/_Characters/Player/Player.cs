@@ -125,9 +125,15 @@ namespace RPG.Characters
             }
         }
 
+
         private void AddHealthPoints()
         {
             var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
+            AddHealth(pointsToAdd);
+        }
+
+        public void AddHealth(float pointsToAdd)
+        {
             currentHealthPoints = Mathf.Clamp(currentHealthPoints + pointsToAdd, 0, maxHealthPoints);
         }
 

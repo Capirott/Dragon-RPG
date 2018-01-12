@@ -4,20 +4,25 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    public class PowerAttackBehaviour : MonoBehaviour, ISpecialAbility
+    public class SelfHealBehaviour : MonoBehaviour, ISpecialAbility
     {
-        PowerAttackConfig config;
+        SelfHealConfig config;
+        Player player;
+
+        private void Start()
+        {
+            player = GetComponent<Player>();
+        }
 
         public void Use(AbilityUseParams useParams)
         {
-            DealDamage(useParams);
+            Heal(useParams);
             PlayParticleEffect();
         }
 
-        private void DealDamage(AbilityUseParams useParams)
+        private void Heal(AbilityUseParams useParams)
         {
-            float damageToDeal = useParams.baseDamage + config.GetExtraDamage();
-            useParams.target.TakeDamage(damageToDeal);
+            player.AddHealth(config.GetExtraHealth());
         }
 
         private void PlayParticleEffect()
@@ -28,12 +33,12 @@ namespace RPG.Characters
             Destroy(prefab, myParticleSystem.main.duration);
         }
 
-        public void SetPowerAttackConfig(PowerAttackConfig config)
+        public void SetPowerAttackConfig(SelfHealConfig config)
         {
             this.config = config;
         }
 
-        public PowerAttackConfig GetPowerAttackConfig()
+        public SelfHealConfig GetSelfHealConfig()
         {
             return config;
         }

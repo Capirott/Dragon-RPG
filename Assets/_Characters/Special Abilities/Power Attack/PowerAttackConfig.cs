@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace RPG.Characters
 {
     [CreateAssetMenu(menuName = ("RPG/Special Ability/Power Attack"))]
@@ -13,7 +12,7 @@ namespace RPG.Characters
         public override void AttachComponentTo(GameObject gameObjectToAttachTo)
         {
             PowerAttackBehaviour behaviourComponent = gameObjectToAttachTo.AddComponent<PowerAttackBehaviour>();
-            behaviourComponent.SetPowerAttackConfig(this);
+            behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }          
         

@@ -2627,6 +2627,12 @@ Prefab:
       propertyPath: energyBar
       value: 
       objectReference: {fileID: 1738328636}
+    - target: {fileID: 114362790802890932, guid: c7063294d039e1349bb1a5808d742b38,
+        type: 2}
+      propertyPath: abilities.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 43d18bfdf56be7e4fa81a39723ff36cd,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7063294d039e1349bb1a5808d742b38, type: 2}
   m_IsPrefabParent: 0

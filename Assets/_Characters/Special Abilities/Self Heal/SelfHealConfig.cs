@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
@@ -8,12 +6,12 @@ namespace RPG.Characters
     public class SelfHealConfig : AbilityConfig
     {
         [Header("Self Heal Specific")]
-        [SerializeField]
-        float extraHealth = 10f;
+        [SerializeField] float extraHealth = 10f;
+
         public override void AttachComponentTo(GameObject gameObjectToAttachTo)
         {
             SelfHealBehaviour behaviourComponent = gameObjectToAttachTo.AddComponent<SelfHealBehaviour>();
-            behaviourComponent.SetPowerAttackConfig(this);
+            behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }
 

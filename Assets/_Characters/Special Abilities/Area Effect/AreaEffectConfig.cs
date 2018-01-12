@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
@@ -14,7 +12,7 @@ namespace RPG.Characters
         public override void AttachComponentTo(GameObject gameObjectToAttachTo)
         {
             AreaEffectBehaviour behaviourComponent = gameObjectToAttachTo.AddComponent<AreaEffectBehaviour>();
-            behaviourComponent.SetPowerAttackConfig(this);
+            behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }
 

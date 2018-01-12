@@ -1,61 +1,25 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace RPG.Characters
+﻿namespace RPG.Characters
 {
-    public class SelfHealBehaviour : MonoBehaviour, ISpecialAbility
+    public class SelfHealBehaviour : AbilityBehaviour
     {
-        SelfHealConfig config = null;
         Player player = null;
-        AudioSource audioSource = null;
 
-        private void Start()
+        public override void Use(AbilityUseParams useParams)
         {
-            audioSource = GetComponent<AudioSource>();
-            player = GetComponent<Player>();
-        }
-
-        public void Use(AbilityUseParams useParams)
-        {
-            PlayParticleEffect();
-            PlaySound();
             Heal(useParams);
-        }
-
-        private void PlaySound()
-        {
-            AudioClip audioClip = config.GetAudioClip();
-            if (audioClip != null)
-            {
-                audioSource.clip = audioClip;
-                audioSource.Play();
-            }
+            PlayAbilitySound();
+            PlayParticleEffect();
         }
 
         private void Heal(AbilityUseParams useParams)
         {
-            player.AddHealth(config.GetExtraHealth());
+            player.AddHealth((config as SelfHealConfig).GetExtraHealth());
         }
 
-        private void PlayParticleEffect()
+        protected override void Start()
         {
-            var prefab = Instantiate(config.GetParticlePrefab(), transform);
-            ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
-            myParticleSystem.Play();
-            Destroy(prefab, myParticleSystem.main.duration);
+            player = GetComponent<Player>();
+            base.Start();
         }
-
-        public void SetPowerAttackConfig(SelfHealConfig config)
-        {
-            this.config = config;
-        }
-
-        public SelfHealConfig GetSelfHealConfig()
-        {
-            return config;
-        }
-
     }
 }

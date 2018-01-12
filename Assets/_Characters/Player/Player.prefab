@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9579096}
   - component: {fileID: 5426510}
   - component: {fileID: 13615390}
-  - component: {fileID: 11469404}
   - component: {fileID: 195423016182422706}
   - component: {fileID: 114853617789834466}
   - component: {fileID: 114799157468188864}
@@ -70,25 +69,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11469404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 1800
-  m_StationaryTurnSpeed: 900
-  m_JumpPower: 6
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.7
-  m_AnimSpeedMultiplier: 1.5
-  m_GroundCheckDistance: 1
 --- !u!136 &13615390
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -763,6 +743,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5855a65d0f521874ab3f7a39a4104a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoppingDistance: 1
+  moveSpeedMultiplier: 0.7
+  movingTurnSpeed: 360
+  stationaryTurnSpeed: 180
+  moveThreshold: 1
 --- !u!137 &137146753051092728
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

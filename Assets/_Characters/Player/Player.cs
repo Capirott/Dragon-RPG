@@ -57,7 +57,7 @@ namespace RPG.Characters
         {
             for (int i = 0; i < abilities.Length; ++i)
             {
-                abilities[i].AttachComponentTo(gameObject);
+                abilities[i].AttachAbilityTo(gameObject);
             }
         }
 

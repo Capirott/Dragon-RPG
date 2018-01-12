@@ -14,7 +14,6 @@ namespace RPG.Characters
         [SerializeField] float stationaryTurnSpeed = 180;
         [SerializeField] float moveThreshold = 1f;
 
-        GameObject walkTarget;
         NavMeshAgent agent;
         Animator animator;
         Rigidbody myRigidbody;
@@ -27,7 +26,6 @@ namespace RPG.Characters
             animator = GetComponent<Animator>();
             myRigidbody = GetComponent<Rigidbody>();
             agent = GetComponent<NavMeshAgent>();
-            walkTarget = new GameObject("walkTarget");
             CameraRaycaster cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
             cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
@@ -84,7 +82,6 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
             {
-                walkTarget.transform.position = enemy.transform.position;
                 agent.SetDestination(enemy.transform.position);
             }
         }
@@ -93,7 +90,6 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButton(0))
             {
-                walkTarget.transform.position = destination;
                 agent.SetDestination(destination);
             }
         }

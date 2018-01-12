@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 11469404}
   - component: {fileID: 195423016182422706}
   - component: {fileID: 114853617789834466}
-  - component: {fileID: 114933195057390812}
   - component: {fileID: 114799157468188864}
   - component: {fileID: 114769673879847518}
   m_Layer: 11
@@ -23,15 +22,15 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408730
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1739655, y: 0, z: 0.57992554}
+  m_LocalRotation: {x: -0, y: -0.86735326, z: -0, w: 0.49769312}
+  m_LocalPosition: {x: 0.9371152, y: 2.3367453, z: -0.06584406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4894789893909220}
@@ -96,7 +95,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
@@ -743,10 +742,16 @@ MonoBehaviour:
   currentHealthPoints: 100
   regenPointsPerSecond: 10
   baseDamage: 10
-  weaponInUse: {fileID: 11400000, guid: 6b7a9ab009a4e1e4d90a884ce2a089d5, type: 2}
+  currentWeaponConfig: {fileID: 0}
   animatorOverrideController: {fileID: 0}
+  damageSounds: []
+  deathSounds: []
+  criticalHitChance: 0.1
+  criticalHitMultiplier: 1.25
+  criticalHitParticle: {fileID: 0}
   abilities:
   - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
+  - {fileID: 11400000, guid: f54a31ca6f04ed64aaaae6d9008ac38a, type: 2}
 --- !u!114 &114853617789834466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -758,18 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5855a65d0f521874ab3f7a39a4104a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114933195057390812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!137 &137146753051092728
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

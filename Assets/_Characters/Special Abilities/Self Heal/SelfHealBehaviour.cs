@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,18 +7,31 @@ namespace RPG.Characters
 {
     public class SelfHealBehaviour : MonoBehaviour, ISpecialAbility
     {
-        SelfHealConfig config;
-        Player player;
+        SelfHealConfig config = null;
+        Player player = null;
+        AudioSource audioSource = null;
 
         private void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             player = GetComponent<Player>();
         }
 
         public void Use(AbilityUseParams useParams)
         {
-            Heal(useParams);
             PlayParticleEffect();
+            PlaySound();
+            Heal(useParams);
+        }
+
+        private void PlaySound()
+        {
+            AudioClip audioClip = config.GetAudioClip();
+            if (audioClip != null)
+            {
+                audioSource.clip = audioClip;
+                audioSource.Play();
+            }
         }
 
         private void Heal(AbilityUseParams useParams)

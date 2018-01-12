@@ -18,6 +18,9 @@ namespace RPG.Characters
         [SerializeField] AnimatorOverrideController animatorOverrideController;
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
+        [Range(0.1f, 1.0f)] [SerializeField] float criticalHitChance = 0.1f;
+        [SerializeField] float criticalHitMultiplier = 1.25f;
+        [SerializeField] ParticleSystem criticalHitParticle;
         [SerializeField] AbilityConfig[] abilities;
         AudioSource audioSource;
 
@@ -177,9 +180,21 @@ namespace RPG.Characters
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
-                currentEnemy.TakeDamage(baseDamage);
+                currentEnemy.TakeDamage(CalculateDamage());
                 lastHitTime = Time.time;
             }
+        }
+
+        private float CalculateDamage()
+        {
+            bool isCriticalHit = Random.Range(0.0f, 1.0f) <= criticalHitChance;
+            float damage = baseDamage + weaponInUse.GetAdditionalDamage();
+            if (isCriticalHit)
+            {
+                criticalHitParticle.Play();
+                damage *= criticalHitMultiplier;
+            }
+            return damage;
         }
 
         private bool IsTargetInRange(GameObject target)

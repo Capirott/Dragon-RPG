@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ADE L1
   m_EditorClassIdentifier: 
   energyCost: 10
-  particlePrefab: {fileID: 1642726964731160, guid: 0d04c263bcf6de14aaa967dbced72c78,
+  particlePrefab: {fileID: 1977060658541122, guid: ddb9eccb541f52c4d91b421e9aba766d,
     type: 2}
   audioClip: {fileID: 0}
   radius: 5

@@ -91,7 +91,7 @@ namespace RPG.Characters
             if (Input.GetMouseButton(0))
             {
                 agent.SetDestination(destination);
-            }
+            }            
         }
 
         public void OnAnimatorMove()
@@ -104,6 +104,11 @@ namespace RPG.Characters
                 velocity.y = myRigidbody.velocity.y;
                 myRigidbody.velocity = velocity;
             }
+        }
+
+        public void Kill()
+        {
+
         }
 
     }

@@ -2,7 +2,7 @@
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
-        Player player = null;
+        HealthSystem healthSystem = null;
 
         public override void Use(AbilityUseParams useParams)
         {
@@ -13,12 +13,12 @@
 
         private void Heal(AbilityUseParams useParams)
         {
-            player.AddHealth((config as SelfHealConfig).GetExtraHealth());
+            healthSystem.AddHealth((config as SelfHealConfig).GetExtraHealth());
         }
 
         protected override void Start()
         {
-            player = GetComponent<Player>();
+            healthSystem = GetComponent<HealthSystem>();
             base.Start();
         }
     }

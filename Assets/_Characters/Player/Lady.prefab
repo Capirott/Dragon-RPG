@@ -3615,23 +3615,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522d39c4c1ba004a979757fbcf8dd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 1000
-  currentHealthPoints: 100
-  regenPointsPerSecond: 5
   baseDamage: 15
   currentWeaponConfig: {fileID: 11400000, guid: 59f0848c13143da4c8e85d5e9905eb3e,
     type: 2}
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
     type: 2}
-  damageSounds:
-  - {fileID: 8300000, guid: b4a3339f66231ef4cb113b6ec4956d43, type: 3}
-  - {fileID: 8300000, guid: 4f9f301751478684c9952dde693dcabd, type: 3}
-  - {fileID: 8300000, guid: da4a8d375f851bb47aa86b49b6b24d44, type: 3}
-  - {fileID: 8300000, guid: bd63d331192d0324b829a3230f8056b7, type: 3}
-  deathSounds:
-  - {fileID: 8300000, guid: 06133cf454f35534cb7685979ac9e20d, type: 3}
-  - {fileID: 8300000, guid: d6362b0ad85e7af4b9b2930ac13b9962, type: 3}
-  - {fileID: 8300000, guid: 709a0ecb283ce0b46a3661c4ad2a77d1, type: 3}
   criticalHitChance: 0.1
   criticalHitMultiplier: 1.25
   criticalHitParticle: {fileID: 198679927533063618}
@@ -3652,6 +3640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoppingDistance: 1
   moveSpeedMultiplier: 1.5
+  animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180
   moveThreshold: 1

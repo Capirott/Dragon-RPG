@@ -718,14 +718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522d39c4c1ba004a979757fbcf8dd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100000
-  currentHealthPoints: 100
-  regenPointsPerSecond: 10
   baseDamage: 10
   currentWeaponConfig: {fileID: 0}
   animatorOverrideController: {fileID: 0}
-  damageSounds: []
-  deathSounds: []
   criticalHitChance: 0.1
   criticalHitMultiplier: 1.25
   criticalHitParticle: {fileID: 0}
@@ -745,6 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoppingDistance: 1
   moveSpeedMultiplier: 0.7
+  animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180
   moveThreshold: 1

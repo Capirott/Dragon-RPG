@@ -9,6 +9,7 @@ namespace RPG.Characters {
         [SerializeField] float energyCost = 10f;
         [SerializeField] GameObject particlePrefab = null;
         [SerializeField] AudioClip[] audioClips = null;
+        [SerializeField] AnimationClip abilityAnimation;
 
         protected AbilityBehaviour behaviour;
 
@@ -20,6 +21,11 @@ namespace RPG.Characters {
         }
 
         public abstract AbilityBehaviour GetBehaviourComponent(GameObject gameObjectToAttachTo);
+
+        public AnimationClip GetAnimationClip()
+        {
+            return abilityAnimation;
+        }
 
         public void Use(GameObject target)
         {

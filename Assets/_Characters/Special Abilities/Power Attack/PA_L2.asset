@@ -15,4 +15,5 @@ MonoBehaviour:
   particlePrefab: {fileID: 1461783020156800, guid: 1a3535312d4b1664182de05c341e95ad,
     type: 2}
   audioClips: []
+  abilityAnimation: {fileID: 7400000, guid: 0e6eaa5ef7d7d8e42b08e075160c1903, type: 3}
   extraDamage: 10

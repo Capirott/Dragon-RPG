@@ -16,5 +16,6 @@ MonoBehaviour:
     type: 2}
   audioClips:
   - {fileID: 8300000, guid: 1ecc5c2aedab30f4c8bbfda7d1ae3abe, type: 3}
+  abilityAnimation: {fileID: 7400000, guid: fa958fb76ef3c58488343f9b51f4df15, type: 3}
   radius: 5
   damageToEachTarget: 500

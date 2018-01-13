@@ -9,6 +9,7 @@ namespace RPG.Characters
         {
             Heal(target);
             PlayAbilitySound();
+            PlayAbilityAnimation();
             PlayParticleEffect();
         }
 

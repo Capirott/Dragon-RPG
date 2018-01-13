@@ -23,7 +23,7 @@ namespace RPG.Characters
 
         State state = State.idle;
 
-        PlayerMovement player = null;
+        PlayerControl player = null;
         Character character;
         float currentWeaponRange;
         float distanceToPlayer;
@@ -31,7 +31,7 @@ namespace RPG.Characters
 
         private void Start()
         {
-            player = GameObject.FindObjectOfType<PlayerMovement>();
+            player = GameObject.FindObjectOfType<PlayerControl>();
             character = GetComponent<Character>();
         }
 
@@ -61,7 +61,7 @@ namespace RPG.Characters
         IEnumerator Patrol()
         {
             state = State.patrolling;            
-            while (true)
+            while (patrolPath != null)
             {
                 Vector3 nextWaypointPos = patrolPath.transform.GetChild(nextWaypointIndex).position;
                 character.SetDesination(nextWaypointPos);

@@ -10,6 +10,7 @@ namespace RPG.Characters
         {
             DealDamage(target);
             PlayAbilitySound();
+            PlayAbilityAnimation();
             PlayParticleEffect();
         }
 

@@ -4,7 +4,7 @@ using RPG.CameraUI;
 
 namespace RPG.Characters
 {
-    public class Player : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon currentWeaponConfig;
@@ -19,16 +19,33 @@ namespace RPG.Characters
 
         Enemy currentEnemy = null;
         Animator animator;
+        Character character;
         SpecialAbilities abilities;
         CameraRaycaster cameraRaycaster;
         float lastHitTime = 0f;
 
         private void Start()
         {
+            character = GetComponent<Character>();
             abilities = GetComponent<SpecialAbilities>();
-            RegisterForMouseClick();
+            RegisterForMouseEvents();
             PutWeaponInHand(currentWeaponConfig);
             SetupRuntimeAnimator();
+        }
+
+        private void RegisterForMouseEvents()
+        {
+            cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+        }
+
+        public void OnMouseOverPotentiallyWalkable(Vector3 destination)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                character.SetDesination(destination);
+            }
         }
 
         public void PutWeaponInHand(Weapon weaponToUse)
@@ -58,11 +75,6 @@ namespace RPG.Characters
             return dominantHands[0].gameObject;
         }
 
-        private void RegisterForMouseClick()
-        {
-            cameraRaycaster = FindObjectOfType<CameraRaycaster>();
-            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
-        }
 
         private void OnMouseOverEnemy(Enemy enemy)
         {
@@ -79,11 +91,7 @@ namespace RPG.Characters
 
         private void Update()
         {
-            var healthAsPercentage = GetComponent<HealthSystem>().healthAsPercentage;
-            if (healthAsPercentage > Mathf.Epsilon)
-            {
-                ScanForAbilityKeyDown();
-            }
+            ScanForAbilityKeyDown();
         }
 
         private void ScanForAbilityKeyDown()
@@ -95,7 +103,7 @@ namespace RPG.Characters
                     abilities.AttemptSpecialAbility(i, currentEnemy.gameObject);
                 }
             }
-        }  
+        }
 
         private void AttackTarget()
         {

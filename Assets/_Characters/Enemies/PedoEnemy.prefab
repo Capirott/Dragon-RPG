@@ -306,9 +306,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4778898863634680}
-  - component: {fileID: 54523220634915984}
-  - component: {fileID: 136569136334730286}
-  - component: {fileID: 195290171602326252}
   - component: {fileID: 114215585168516322}
   - component: {fileID: 114356579019219820}
   - component: {fileID: 114067757879692058}
@@ -624,7 +621,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871938639779616}
   m_LocalRotation: {x: -0, y: -0.9901751, z: -0, w: -0.13983315}
-  m_LocalPosition: {x: -14.8289795, y: 0, z: -13.892868}
+  m_LocalPosition: {x: -16.28894, y: 0, z: -12.330063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319645177037980}
@@ -716,21 +713,6 @@ Transform:
   m_Father: {fileID: 4497271077792460}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54523220634915984
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1871938639779616}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &114067757879692058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,9 +762,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
-  animatorOverrideController: {fileID: 0}
+  animatorOverrideController: {fileID: 22100000, guid: b1c91701bec347742998c153ac26b23f,
+    type: 2}
   characterAvatar: {fileID: 9000000, guid: f1e43552633f2314ba5e0caf4e8e2151, type: 3}
-  stoppingDistance: 1
   moveSpeedMultiplier: 0.7
   animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
@@ -791,6 +773,9 @@ MonoBehaviour:
   colliderCenter: {x: 0, y: 1.03, z: 0}
   colliderRadius: 0.2
   colliderHeight: 2.03
+  audioSourceSpatialBlend: 0.5
+  navMeshAgentSteeringSpeed: 1
+  navMeshAgentStoppingDistance: 1.3
 --- !u!114 &114518030560506836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,19 +789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 1311539807392560, guid: 9a9d70d10b9331d469e57254147e0430,
     type: 2}
---- !u!136 &136569136334730286
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1871938639779616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 2.03
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.03, z: 0}
 --- !u!137 &137164331736480016
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -882,24 +854,3 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.40498084, y: 0.054471254, z: -0.04461068}
     m_Extent: {x: 1.0473697, y: 0.63893044, z: 0.61319286}
   m_DirtyAABB: 0
---- !u!195 &195290171602326252
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1871938639779616}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.4
-  m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 50
-  m_StoppingDistance: 1.5
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

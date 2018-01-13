@@ -38,6 +38,7 @@ namespace RPG.Characters
         float turnAmount;
         float forwardAmount;
         Vector3 groundNormal;
+        bool isAlive = true;
 
         private void Awake()
         {
@@ -71,14 +72,12 @@ namespace RPG.Characters
 
         private void Start()
         {          
-            CameraRaycaster cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
-            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
+
         }
 
         private void Update()
         {
-            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance && isAlive)
             {
                 Move(navMeshAgent.desiredVelocity);
             } 
@@ -88,7 +87,12 @@ namespace RPG.Characters
             }
         }
 
-        public void Move(Vector3 movement)
+        public void SetDesination(Vector3 worldPosition)
+        {
+            navMeshAgent.destination = worldPosition;
+        }
+
+        void Move(Vector3 movement)
         {
             SetFowardAndTurn(movement);
             ApplyExtraTurnRotation();
@@ -119,22 +123,6 @@ namespace RPG.Characters
             transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
         }
 
-        private void OnMouseOverEnemy(Enemy enemy)
-        {
-            if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
-            {
-                navMeshAgent.SetDestination(enemy.transform.position);
-            }
-        }
-
-        private void OnMouseOverPotentiallyWalkable(Vector3 destination)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                navMeshAgent.SetDestination(destination);
-            }            
-        }
-
         public void OnAnimatorMove()
         {
             if (Time.deltaTime > 0)
@@ -149,7 +137,7 @@ namespace RPG.Characters
 
         public void Kill()
         {
-
+            isAlive = false;
         }
 
     }

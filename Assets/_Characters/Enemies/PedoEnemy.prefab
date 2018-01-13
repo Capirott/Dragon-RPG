@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4675771540149090}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_Leg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4703944221827680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Spine03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4868855571493490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4756594253971868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_Foot02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640952208621950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4225396641444980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_Leg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4426579604771194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4497271077792460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_Foot01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4716978803879536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4170421359246938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4694664202656308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pedobear_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4565756708130242}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_Leg01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4799806334804502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_ForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4319645177037980}
   - component: {fileID: 137164331736480016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mesh_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812113770750330}
   - component: {fileID: 114518030560506836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UI Socket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4885556575002918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Spine01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4818226714508382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4516847661416804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Spine02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4997770001436884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_Foot02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,13 +306,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4778898863634680}
-  - component: {fileID: 95924156624039962}
   - component: {fileID: 54523220634915984}
   - component: {fileID: 136569136334730286}
-  - component: {fileID: 114282267923824586}
   - component: {fileID: 195290171602326252}
-  - component: {fileID: 114426559210511620}
   - component: {fileID: 114215585168516322}
+  - component: {fileID: 114356579019219820}
+  - component: {fileID: 114067757879692058}
   m_Layer: 9
   m_Name: PedoEnemy
   m_TagString: Untagged
@@ -328,7 +327,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4025441740540118}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Left_Leg02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +342,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4496599138557914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Projectile Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +357,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4551526090368138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Right_Foot01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +372,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002626124314820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: b_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +624,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871938639779616}
   m_LocalRotation: {x: -0, y: -0.9901751, z: -0, w: -0.13983315}
-  m_LocalPosition: {x: -0.6011658, y: 0, z: -4.171707}
+  m_LocalPosition: {x: -14.8289795, y: 0, z: -13.892868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319645177037980}
@@ -732,23 +731,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95924156624039962
-Animator:
-  serializedVersion: 3
+--- !u!114 &114067757879692058
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871938639779616}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f1e43552633f2314ba5e0caf4e8e2151, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3279a167cbe8f94e95249fed22711ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 100
+  regenPointsPerSecond: 10
+  healthBar: {fileID: 0}
+  damageSounds: []
+  deathSounds: []
+  floatDeathVanishSeconds: 2
 --- !u!114 &114215585168516322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,17 +759,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c0fb87da359524594e6bb2b0527392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 800
-  currentHealthPoints: 800
   chaseRadius: 15
   attackRadius: 1.52
   damagePerShot: 100
-  secondsBetweenShots: 2
+  firingPeriodsInS: 0.5
+  firingPeriodVariation: 0.1
   projectileToUse: {fileID: 1680703822735258, guid: 2e16e043ff68010428e9336dfc2ad651,
     type: 2}
   projectileSocket: {fileID: 1927421305835810}
   aimOffset: {x: 0, y: 1, z: 0}
---- !u!114 &114282267923824586
+--- !u!114 &114356579019219820
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -778,29 +776,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871938639779616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
+  m_Script: {fileID: 11500000, guid: 5855a65d0f521874ab3f7a39a4104a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 1800
-  m_StationaryTurnSpeed: 900
-  m_JumpPower: 6
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.5
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 1
---- !u!114 &114426559210511620
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1871938639779616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  animatorOverrideController: {fileID: 0}
+  characterAvatar: {fileID: 9000000, guid: f1e43552633f2314ba5e0caf4e8e2151, type: 3}
+  stoppingDistance: 1
+  moveSpeedMultiplier: 0.7
+  animationSpeedMultiplier: 1.5
+  movingTurnSpeed: 360
+  stationaryTurnSpeed: 180
+  moveThreshold: 1
+  colliderCenter: {x: 0, y: 1.03, z: 0}
+  colliderRadius: 0.2
+  colliderHeight: 2.03
 --- !u!114 &114518030560506836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -820,7 +810,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871938639779616}
-  m_Material: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3

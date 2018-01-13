@@ -1,17 +1,18 @@
-﻿namespace RPG.Characters
+﻿using UnityEngine;
+namespace RPG.Characters
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
         HealthSystem healthSystem = null;
 
-        public override void Use(AbilityUseParams useParams)
+        public override void Use(GameObject target)
         {
-            Heal(useParams);
+            Heal(target);
             PlayAbilitySound();
             PlayParticleEffect();
         }
 
-        private void Heal(AbilityUseParams useParams)
+        private void Heal(GameObject target)
         {
             healthSystem.AddHealth((config as SelfHealConfig).GetExtraHealth());
         }

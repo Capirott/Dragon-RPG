@@ -3,18 +3,6 @@ using RPG.Core;
 
 namespace RPG.Characters {
 
-    public struct AbilityUseParams
-    {
-        public IDamageable target;
-        public float baseDamage;
-
-        public AbilityUseParams(IDamageable target, float baseDamage)
-        {
-            this.target = target;
-            this.baseDamage = baseDamage;
-        }
-    }
-
     public abstract class AbilityConfig : ScriptableObject
     {
         [Header("Special Ability General")]
@@ -33,9 +21,9 @@ namespace RPG.Characters {
 
         public abstract AbilityBehaviour GetBehaviourComponent(GameObject gameObjectToAttachTo);
 
-        public void Use(AbilityUseParams useParams)
+        public void Use(GameObject target)
         {
-            behaviour.Use(useParams);
+            behaviour.Use(target);
         }
 
         public float GetEnergyCost()
@@ -52,6 +40,5 @@ namespace RPG.Characters {
         {         
             return audioClips.Length == 0 ? null : audioClips[Random.Range(0, audioClips.Length)];
         }
-
     }
 }

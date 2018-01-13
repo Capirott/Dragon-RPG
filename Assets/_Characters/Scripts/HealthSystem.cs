@@ -19,7 +19,7 @@ namespace RPG.Characters
         AudioSource audioSource;
         float currentHealthPoints;
         const string DEATH_TRIGGER = "Death";
-        CharacterMovement characterMovement;
+        Character characterMovement;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -27,7 +27,7 @@ namespace RPG.Characters
         {
             audioSource = GetComponent<AudioSource>();
             animator = GetComponent<Animator>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<Character>();
             SetCurrentMaxHealth();
         }
 

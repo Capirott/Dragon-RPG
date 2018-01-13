@@ -70,6 +70,11 @@ namespace RPG.Characters
             navMeshAgent.updatePosition = true;
         }
 
+        public float GetAnimationSpeedMultiplier()
+        {
+            return animationSpeedMultiplier;
+        }
+
         public AnimatorOverrideController GetAnimatorOverrideController ()
         {
             return animatorOverrideController;

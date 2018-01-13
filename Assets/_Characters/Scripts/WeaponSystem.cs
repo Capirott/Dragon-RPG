@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -11,8 +10,7 @@ namespace RPG.Characters
         [SerializeField] WeaponConfig currentWeaponConfig;
 
         const string ATTACK_TRIGGER = "Attack";
-        const string DEFAULT_ATTACK = "DEFAULT ATTACK";
-      
+        const string DEFAULT_ATTACK = "DEFAULT ATTACK";    
 
         GameObject target;
         GameObject weaponObject;
@@ -25,7 +23,32 @@ namespace RPG.Characters
             animator = GetComponent<Animator>();
             character = GetComponent<Character>();
             PutWeaponInHand(currentWeaponConfig);
-            SetupRuntimeAnimator();
+            SetAttackAnimation();
+        }
+
+        private void Update()
+        {
+            bool targetIsDead;
+            bool targetIsOutOfRange;
+
+            if (target == null)
+            {
+                targetIsDead = false;
+                targetIsOutOfRange = false;
+            }
+            else
+            {
+                targetIsDead = target.GetComponent<HealthSystem>().healthAsPercentage <= Mathf.Epsilon;
+                targetIsOutOfRange = Vector3.Distance(transform.position, target.transform.position) > currentWeaponConfig.GetMaxAttackRange();
+            }
+
+            float characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
+            bool characterIsDead = (characterHealth <= Mathf.Epsilon);
+
+            if (characterIsDead || targetIsOutOfRange || targetIsDead)
+            {
+                StopAllCoroutines();
+            }
         }
 
         public WeaponConfig GetCurrentWeapon()
@@ -54,8 +77,13 @@ namespace RPG.Characters
             weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
         }
 
-        private void SetupRuntimeAnimator()
+        private void SetAttackAnimation()
         {
+            if (!character.GetAnimatorOverrideController())
+            {
+                Debug.LogAssertion("Please provide " + gameObject.name + "with an animator override controller.");
+                Debug.Break();
+            }
             animator = GetComponent<Animator>();
             var animatorOverrideController    = character.GetAnimatorOverrideController();
             animator.runtimeAnimatorController = animatorOverrideController;
@@ -65,6 +93,40 @@ namespace RPG.Characters
         public void AttackTarget(GameObject target)
         {
             this.target = target;
+            StartCoroutine(AttackTargetRepeatedly());
+        }
+
+        void AttackTargetOnce()
+        {
+            transform.LookAt(target.transform.position);
+            SetAttackAnimation();
+            animator.SetTrigger(ATTACK_TRIGGER);
+            float damageDelay = 1f;
+            StartCoroutine(DamageAfterDelay(damageDelay));
+        }
+
+        IEnumerator DamageAfterDelay(float damageDelay)
+        {
+            yield return new WaitForSeconds(damageDelay);
+            target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
+        }
+
+
+        IEnumerator AttackTargetRepeatedly()
+        {
+            bool attackerStillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            float timeToWait = currentWeaponConfig.GetMinTimeBetweenHits() * character.GetAnimationSpeedMultiplier();
+            while (attackerStillAlive && targetStillAlive)
+            {
+                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
+                if (isTimeToHitAgain)
+                {
+                    AttackTargetOnce();
+                    lastHitTime = Time.time;
+                }
+                yield return new WaitForSeconds(timeToWait);
+            }
         }
 
         private void AttackTarget()

@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4045579750935494}
   - component: {fileID: 114603816778167394}
+  - component: {fileID: 114222759078527476}
   m_Layer: 9
   m_Name: Regular Soldier
   m_TagString: Untagged
@@ -680,6 +681,23 @@ Transform:
   m_Father: {fileID: 4395916463025828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114222759078527476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258906700737356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3279a167cbe8f94e95249fed22711ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 100
+  regenPointsPerSecond: 10
+  healthBar: {fileID: 0}
+  damageSounds: []
+  deathSounds: []
+  floatDeathVanishSeconds: 2
 --- !u!114 &114561536073735698
 MonoBehaviour:
   m_ObjectHideFlags: 1

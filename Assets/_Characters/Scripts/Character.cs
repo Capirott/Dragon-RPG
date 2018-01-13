@@ -70,6 +70,11 @@ namespace RPG.Characters
             navMeshAgent.updatePosition = true;
         }
 
+        public AnimatorOverrideController GetAnimatorOverrideController ()
+        {
+            return animatorOverrideController;
+        }
+
         private void Start()
         {          
 

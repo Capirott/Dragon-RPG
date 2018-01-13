@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4045579750935494}
   - component: {fileID: 114603816778167394}
+  - component: {fileID: 114347223122327944}
   m_Layer: 9
   m_Name: Minion
   m_TagString: Untagged
@@ -1969,6 +1970,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090337263194668}
   m_Mesh: {fileID: 4300016, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+--- !u!114 &114347223122327944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258906700737356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3279a167cbe8f94e95249fed22711ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 100
+  regenPointsPerSecond: 10
+  healthBar: {fileID: 0}
+  damageSounds: []
+  deathSounds: []
+  floatDeathVanishSeconds: 2
 --- !u!114 &114561536073735698
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &408730
 Transform:
   m_ObjectHideFlags: 1
@@ -703,10 +703,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c36763817cf8d445a83594938c7cce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilities: []
   energyBar: {fileID: 0}
   maxEnergyPoints: 100
   currentEnergyPoints: 0
   regenPointsPerSecond: 10
+  outOfEnergyClip: {fileID: 0}
 --- !u!114 &114799157468188864
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -718,15 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e522d39c4c1ba004a979757fbcf8dd30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 10
-  currentWeaponConfig: {fileID: 0}
-  animatorOverrideController: {fileID: 0}
   criticalHitChance: 0.1
   criticalHitMultiplier: 1.25
   criticalHitParticle: {fileID: 0}
-  abilities:
-  - {fileID: 11400000, guid: 8d3d7b141e706a14eb27b283e55b6732, type: 2}
-  - {fileID: 11400000, guid: f54a31ca6f04ed64aaaae6d9008ac38a, type: 2}
 --- !u!114 &114853617789834466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,12 +734,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5855a65d0f521874ab3f7a39a4104a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 1
+  animatorController: {fileID: 0}
+  animatorOverrideController: {fileID: 0}
+  characterAvatar: {fileID: 0}
   moveSpeedMultiplier: 0.7
   animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180
   moveThreshold: 1
+  colliderCenter: {x: 0, y: 1.03, z: 0}
+  colliderRadius: 0.2
+  colliderHeight: 2.03
+  audioSourceSpatialBlend: 0.5
+  navMeshAgentSteeringSpeed: 1
+  navMeshAgentStoppingDistance: 1.3
 --- !u!137 &137146753051092728
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

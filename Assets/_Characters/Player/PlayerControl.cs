@@ -32,6 +32,7 @@ namespace RPG.Characters
             if (Input.GetMouseButton(0))
             {
                 StopAllCoroutines();
+                weaponSystem.StopAttacking();
                 currentEnemy = null;
                 character.SetDesination(destination);
             }

@@ -56,6 +56,12 @@ namespace RPG.Characters
             return currentWeaponConfig;
         }
 
+        public void StopAttacking()
+        {
+            animator.StopPlayback();
+            StopAllCoroutines();
+        }
+
 
         private GameObject RequestDominantHand()
         {

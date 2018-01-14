@@ -9,13 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beceab8291dc36e45ab54f4be6e60ec4, type: 3}
-  m_Name: Sword
+  m_Name: Bow_L0
   m_EditorClassIdentifier: 
-  gripTransform: {fileID: 4358347018045706, guid: 16ebab3a65155614aa1049e768326c08,
+  gripTransform: {fileID: 4941207598631450, guid: c52007d3a6c795c41861f16679502641,
     type: 2}
-  weaponPrefab: {fileID: 1277290872445230, guid: 0982ce6c23f616d4bae4c222799510a6,
+  weaponPrefab: {fileID: 1520207407545370, guid: e71f2179c8821584998d74b9bc1f8774,
     type: 2}
-  attackAnimation: {fileID: 7400000, guid: 96ed5e4a6dc56fe4c9c2de75fc8a077c, type: 3}
+  attackAnimation: {fileID: 7400000, guid: 668a0a7efc4b25146ba9de24b466a642, type: 3}
   minTimeBetweenHits: 0.5
-  maxAttackRange: 2
-  additionalDamage: 10
+  maxAttackRange: 6
+  additionalDamage: 0
+  damageDelay: 0.7

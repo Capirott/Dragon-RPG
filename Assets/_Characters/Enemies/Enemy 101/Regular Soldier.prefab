@@ -709,8 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1946e1c1bae1c34ba2666ebb3463952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCanvasPrefab: {fileID: 1311539807392560, guid: 9a9d70d10b9331d469e57254147e0430,
-    type: 2}
 --- !u!114 &114603816778167394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,14 +721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRadius: 68
-  attackRadius: 2.1
-  damagePerShot: 20
-  firingPeriodsInS: 0.5
-  firingPeriodVariation: 0.1
-  projectileToUse: {fileID: 1680703822735258, guid: 2e16e043ff68010428e9336dfc2ad651,
-    type: 2}
-  projectileSocket: {fileID: 1975153073060994}
-  aimOffset: {x: 0, y: 1, z: 0}
+  patrolPath: {fileID: 0}
+  waypointTolerance: 2
+  waypointDwellTime: 2
 --- !u!137 &137159473012646596
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

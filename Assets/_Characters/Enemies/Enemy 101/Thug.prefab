@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408730
 Transform:
   m_ObjectHideFlags: 1
@@ -2058,7 +2058,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  regenPointsPerSecond: 10
   healthBar: {fileID: 114930906115322116}
   damageSounds: []
   deathSounds: []
@@ -2102,7 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
-  animatorOverrideController: {fileID: 22100000, guid: b1c91701bec347742998c153ac26b23f,
+  animatorOverrideController: {fileID: 22100000, guid: 5415c8da5f9161f448235d4833b1e36c,
     type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   moveSpeedMultiplier: 0.7

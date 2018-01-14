@@ -3620,7 +3620,7 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: 197908be529ac2249b82c7adb8fe6131,
     type: 2}
   characterAvatar: {fileID: 9000000, guid: fa7f754f73c209342a8be6d2e42ba2ff, type: 3}
-  moveSpeedMultiplier: 1.5
+  moveSpeedMultiplier: 0.8
   animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180

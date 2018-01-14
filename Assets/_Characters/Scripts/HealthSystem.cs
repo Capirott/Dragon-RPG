@@ -9,7 +9,6 @@ namespace RPG.Characters
     public class HealthSystem : MonoBehaviour
     {
         [SerializeField] float maxHealthPoints = 100f;
-        [SerializeField] float regenPointsPerSecond = 10f;
         [SerializeField] Image healthBar;
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
@@ -81,14 +80,6 @@ namespace RPG.Characters
                 Destroy(gameObject, floatDeathVanishSeconds);
             }
         }
-
-
-        private void AddHealthPoints()
-        {
-            var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
-            AddHealth(pointsToAdd);
-        }
-
 
         private void SetCurrentMaxHealth()
         {

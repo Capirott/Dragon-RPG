@@ -116,14 +116,15 @@ namespace RPG.Characters
             target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
         }
 
-
         IEnumerator AttackTargetRepeatedly()
         {
             bool attackerStillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
             bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
-            float timeToWait = currentWeaponConfig.GetMinTimeBetweenHits() * character.GetAnimationSpeedMultiplier();
             while (attackerStillAlive && targetStillAlive)
             {
+                var animationClip = currentWeaponConfig.GetAnimClip();
+                float animationClipTime = animationClip.length / character.GetAnimationSpeedMultiplier();
+                float timeToWait = animationClipTime + currentWeaponConfig.GetTimeBetweenAnimationsCycle();
                 bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
                 if (isTimeToHitAgain)
                 {
@@ -131,15 +132,6 @@ namespace RPG.Characters
                     lastHitTime = Time.time;
                 }
                 yield return new WaitForSeconds(timeToWait);
-            }
-        }
-
-        private void AttackTarget()
-        {
-            if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits())
-            {
-                animator.SetTrigger(ATTACK_TRIGGER);
-                lastHitTime = Time.time;
             }
         }
 

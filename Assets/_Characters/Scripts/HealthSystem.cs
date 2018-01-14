@@ -66,13 +66,15 @@ namespace RPG.Characters
         {
             characterMovement.Kill();
             animator.SetTrigger(DEATH_TRIGGER);
-
-            var playerComponent = GetComponent<PlayerControl>();
-            if (playerComponent && playerComponent.isActiveAndEnabled)
+            if (deathSounds.Length > 0)
             {
                 audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
                 audioSource.Play();
                 yield return new WaitForSecondsRealtime(audioSource.clip.length + 1f);
+            }
+            var playerComponent = GetComponent<PlayerControl>();
+            if (playerComponent && playerComponent.isActiveAndEnabled)
+            {
                 SceneManager.LoadScene(0);
             } 
             else

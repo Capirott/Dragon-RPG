@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 223482854617080494}
   - component: {fileID: 114352185840439852}
   - component: {fileID: 114299979998413088}
+  - component: {fileID: 114989499622853464}
   m_Layer: 0
   m_Name: Enemy Canvas
   m_TagString: Untagged
@@ -83,6 +84,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114989499622853464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1311539807392560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1946e1c1bae1c34ba2666ebb3463952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114997141777982372
 MonoBehaviour:
   m_ObjectHideFlags: 1

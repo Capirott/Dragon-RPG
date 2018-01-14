@@ -9,14 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beceab8291dc36e45ab54f4be6e60ec4, type: 3}
-  m_Name: Hoe
+  m_Name: Bow
   m_EditorClassIdentifier: 
-  gripTransform: {fileID: 4574705428790892, guid: 38d0d21cbf6138a41bbf621763ad158e,
+  gripTransform: {fileID: 4941207598631450, guid: c52007d3a6c795c41861f16679502641,
     type: 2}
-  weaponPrefab: {fileID: 1274797246840802, guid: cc0dbe33ee8adbe4eb124e2d95d37fe4,
+  weaponPrefab: {fileID: 1520207407545370, guid: e71f2179c8821584998d74b9bc1f8774,
     type: 2}
-  attackAnimation: {fileID: 7400000, guid: 4496e3e9b4c7231499b46f4e5d36d430, type: 3}
-  minTimeBetweenHits: 1
-  maxAttackRange: 1.5
-  additionalDamage: 10
-  damageDelay: 2
+  attackAnimation: {fileID: 7400000, guid: 668a0a7efc4b25146ba9de24b466a642, type: 3}
+  minTimeBetweenHits: 0.5
+  maxAttackRange: 6
+  additionalDamage: 15
+  damageDelay: 0.7

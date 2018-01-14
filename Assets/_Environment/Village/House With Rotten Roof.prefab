@@ -104,6 +104,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4888910023431584}
+  - component: {fileID: 65571440882686912}
   m_Layer: 0
   m_Name: House With Rotten Roof
   m_TagString: Untagged
@@ -243,8 +244,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533889322711742}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35, y: -0, z: 26.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -15.24, y: 0, z: 0.93}
+  m_LocalScale: {x: 1.5785561, y: 1.5785564, z: 1.5785564}
   m_Children:
   - {fileID: 4675732843612046}
   - {fileID: 4251167017022394}
@@ -547,3 +548,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462360079602786}
   m_Mesh: {fileID: 4300008, guid: bd5ad1e8f65faf243a9dca015f2d4cea, type: 3}
+--- !u!65 &65571440882686912
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533889322711742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.5, y: 4, z: 5.5}
+  m_Center: {x: -0.35, y: 2, z: 0}

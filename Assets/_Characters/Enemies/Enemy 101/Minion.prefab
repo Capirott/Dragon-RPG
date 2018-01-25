@@ -2053,10 +2053,10 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: 5415c8da5f9161f448235d4833b1e36c,
     type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  moveSpeedMultiplier: 1.2
-  animationSpeedMultiplier: 1.2
-  movingTurnSpeed: 800
-  stationaryTurnSpeed: 800
+  moveSpeedMultiplier: 0.7
+  animationSpeedMultiplier: 1.5
+  movingTurnSpeed: 360
+  stationaryTurnSpeed: 180
   moveThreshold: 1
   colliderCenter: {x: 0, y: 1.03, z: 0}
   colliderRadius: 0.2
